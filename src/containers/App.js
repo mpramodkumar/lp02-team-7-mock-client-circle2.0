@@ -4,12 +4,7 @@ import LoginPage from './LoginPage';
 import NotFound from '../components/NotFound';
 import { Switch } from 'react-router-dom';
 
-
 export class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="app">

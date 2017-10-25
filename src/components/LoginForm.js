@@ -1,39 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-md/lib/Buttons/Button';
-import Card from 'react-md/lib/Cards/Card';
 import TextField from 'react-md/lib/TextFields';
-
-
 
 import { validatePresence } from '../utils/inputValidations';
 
 import '../assets/stylesheets/LoginForm.scss';
 
-const LoginForm = ({
-  userName,
-  password,
-  handleChange,
-  onSubmit,
-  message,
-  spinner,
-}) => {
+const LoginForm = ({ userName, password, handleChange, onSubmit, message }) => {
   const formValid = () => {
     return validatePresence(userName) && validatePresence(password);
   };
 
-
   const renderLoginText = () => {
-      return 'User Login';
+    return 'Team Seven';
   };
 
   return (
-    <Card className="login-form">
-    
+    <form className="login-form">
       <form className="login-form__container" onSubmit={onSubmit}>
-        <h2 className="login-form__title">
-          {renderLoginText()}
-        </h2>
+        <h2 className="login-form__title">{renderLoginText()}</h2>
         <div className="login-form__content">
           <TextField
             id="userName"
@@ -58,21 +44,19 @@ const LoginForm = ({
           <div className="login-form__buttons">
             <Button
               className="login-form__submit"
-              disabled={!formValid() || !!spinner}
-              label="Login"
+              disabled={!formValid()}
+              label="LOGIN"
               onClick={onSubmit}
               raised
               primary
               type="submit"
             />
-
           </div>
+          <p className="">Need help logging in?</p>
         </div>
+        <span className="login-form__message">{message}</span>
       </form>
-      <span className="login-form__message">
-        {message}
-      </span>
-    </Card>
+    </form>
   );
 };
 
@@ -82,7 +66,6 @@ LoginForm.propTypes = {
   handleChange: PropTypes.func,
   onSubmit: PropTypes.func,
   message: PropTypes.string,
-  spinner: PropTypes.bool,
 };
 
 export default LoginForm;
