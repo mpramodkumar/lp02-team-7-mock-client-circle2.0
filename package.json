@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "custom-react-scripts": "^0.0.23",
+    "custom-react-scripts": "^0.1.4",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
@@ -29,6 +29,7 @@
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
+    "prettier": "^1.7.4",
     "prop-types": "^15.5.10",
     "raf": "^3.3.2",
     "react": "^15.5.4",
