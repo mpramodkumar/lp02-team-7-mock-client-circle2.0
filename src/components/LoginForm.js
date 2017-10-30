@@ -4,11 +4,9 @@ import Button from 'react-md/lib/Buttons/Button';
 import Card from 'react-md/lib/Cards/Card';
 import TextField from 'react-md/lib/TextFields';
 
-
-
 import { validatePresence } from '../utils/inputValidations';
 
-import '../assets/stylesheets/LoginForm.scss';
+import '../assets/stylesheets/LoginForm.css';
 
 const LoginForm = ({
   userName,
@@ -22,18 +20,14 @@ const LoginForm = ({
     return validatePresence(userName) && validatePresence(password);
   };
 
-
   const renderLoginText = () => {
-      return 'User Login';
+    return 'User Login';
   };
 
   return (
     <Card className="login-form">
-    
       <form className="login-form__container" onSubmit={onSubmit}>
-        <h2 className="login-form__title">
-          {renderLoginText()}
-        </h2>
+        <h2 className="login-form__title">{renderLoginText()}</h2>
         <div className="login-form__content">
           <TextField
             id="userName"
@@ -59,19 +53,16 @@ const LoginForm = ({
             <Button
               className="login-form__submit"
               disabled={!formValid() || !!spinner}
-              label="Login"
+              children="Login"
               onClick={onSubmit}
               raised
               primary
               type="submit"
             />
-
           </div>
         </div>
       </form>
-      <span className="login-form__message">
-        {message}
-      </span>
+      <span className="login-form__message">{message}</span>
     </Card>
   );
 };

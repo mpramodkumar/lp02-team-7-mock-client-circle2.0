@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import LoginForm from '../components/LoginForm';
 
-
 class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -18,16 +17,13 @@ class LoginPage extends Component {
     };
   }
 
-  componentWillMount() {
-  }
+  componentWillMount() {}
 
   handleLogin(e) {
     e.preventDefault();
-    
   }
 
   redirectToDashboard() {
-    this.props.actions.authSuccess();
     this.props.history.push('/dashboard');
   }
 
@@ -46,16 +42,11 @@ class LoginPage extends Component {
   }
 
   render() {
-    return (
-      <div className="page-container">
-        {this.renderForm()}
-      </div>
-    );
+    return <div className="page-container">{this.renderForm()}</div>;
   }
 }
 
 LoginPage.propTypes = {
-  actions: PropTypes.object.isRequired,
   dispatch: PropTypes.func,
   message: PropTypes.string,
   history: PropTypes.object,
@@ -66,6 +57,5 @@ function mapState(state) {
     message: '',
   };
 }
-
 
 export default connect(mapState)(LoginPage);
