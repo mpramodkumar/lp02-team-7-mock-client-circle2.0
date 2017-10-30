@@ -1,8 +1,9 @@
 import * as types from './actionTypes';
 import axios from 'axios';
 import { API_AUTHENTICATE, API_GET_CURRENT_USER } from '../config/apiConfig';
-//=========================Helpers==============================================
+import * as constants from '../utils/constants';
 
+//=========================Helpers==============================================
 function setSessionItem(item, value) {
   sessionStorage.setItem(item, value);
 }
@@ -26,18 +27,16 @@ export function loginUser(creds) {
           const { jwt } = response.data;
           setSessionItem('jwt', jwt);
         } else {
-          const message =
-            'Username or Password is incorrect. Please try again.';
+          const message = constants.LOGIN_ERR_01;
           dispatch(createErrorMessage(message));
         }
       })
       .catch(function(error) {
         if (error.response === undefined) {
-          const message = 'Service is unavailable. Please try after some time.';
+          const message = constants.LOGIN_ERR_02;
           dispatch(createErrorMessage(message));
         } else {
-          const message =
-            'Username or Password is incorrect. Please try again.';
+          const message = constants.LOGIN_ERR_01;
           dispatch(createErrorMessage(message));
         }
       });
@@ -60,15 +59,12 @@ export function getCurrentUser() {
           setSessionItem('user', JSON.stringify(user));
           dispatch(authSuccess(user));
         } else {
-          debugger;
-          dispatch(currentUserFailure());
-          const message = 'Error while fetching user details.';
+          const message = constants.LOGIN_ERR_03;
           dispatch(createErrorMessage(message));
         }
       })
       .catch(function() {
-        dispatch(currentUserFailure());
-        const message = 'Error while fetching user details.';
+        const message = constants.LOGIN_ERR_03;
         dispatch(createErrorMessage(message));
       });
   };
@@ -82,18 +78,10 @@ export function authSuccess(user) {
   return { type: types.AUTH__SUCCESS, user };
 }
 
-// export function authFailure() {
-//   return { type: types.AUTH__FAILURE };
-// }
-
 export function currentUserSuccess(user) {
   return { type: types.CURRENT_USER__SUCCESS, user };
 }
 
 export function createErrorMessage(message) {
   return { type: types.FLASH_MESSAGE__FAILURE, message };
-}
-
-export function currentUserFailure() {
-  return { type: types.CURRENT_USER__FAILURE };
 }

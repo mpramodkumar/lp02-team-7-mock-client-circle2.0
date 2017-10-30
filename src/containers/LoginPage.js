@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as loginAction from '../actions/auth';
-
 import LoginForm from '../components/LoginForm';
 
 class LoginPage extends Component {
@@ -39,7 +38,7 @@ class LoginPage extends Component {
   }
 
   renderForm() {
-    const { message, spinner } = this.props;
+    const { message } = this.props;
     return (
       <LoginForm
         userName={this.state.userName}
@@ -47,7 +46,6 @@ class LoginPage extends Component {
         handleChange={(name, value) => this.setState({ [name]: value })}
         onSubmit={e => this.handleLogin(e)}
         message={message}
-        spinner={!!spinner}
       />
     );
   }

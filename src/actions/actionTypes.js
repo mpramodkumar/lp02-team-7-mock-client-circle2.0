@@ -1,5 +1,4 @@
 //==================== LOGIN ===================================================
-export const AUTH__FAILURE = 'AUTH__FAILURE';
 export const AUTH__REQUEST = 'AUTH__REQUEST';
 export const AUTH__SUCCESS = 'AUTH__SUCCESS';
 
