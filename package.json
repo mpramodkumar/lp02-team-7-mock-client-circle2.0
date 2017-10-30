@@ -2,6 +2,9 @@
   "name": "keyfob-ui",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "~8.7.0"
+  },
   "dependencies": {
     "@reedsa/react-scripts": "0.2.1",
     "enzyme": "^3.1.0",
@@ -31,7 +34,7 @@
   },
   "scripts": {
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm rebuild node-sass && yarn lint && yarn test:once && yarn build-css && react-scripts build",
+    "build": "npm rebuild node-sass && react-scripts build",
     "test": "react-scripts test  --env=jsdom --maxWorkers=2",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -39,7 +42,7 @@
     "lint:watch": "esw -w src/**/*.js",
     "precommit": "lint-staged",
     "start-js": "react-scripts start",
-    "test:once": "npm rebuild node-sass && yarn build-css && CI=true react-scripts test --env=jsdom",
+    "test:once": "npm rebuild node-sass && CI=true react-scripts test --env=jsdom",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "devDependencies": {
