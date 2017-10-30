@@ -11,13 +11,15 @@
   }
 
   .login-form__title {
-    font-size: 30px;
+    color: rgb(88, 114, 124);
+    font-size: 50px;
+    font-weight: bold;
     text-align: center;
   }
 
   .login-form__content {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 50px;
+    margin-right: 65px;
   }
 
   .login-form__buttons {
@@ -41,7 +43,12 @@
     line-height: 20px;
     height: 40px;
     text-transform: capitalize;
-    width: 75%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .md-background--primary {
+    background: rgb(88, 114, 124) !important;
   }
 
   .md-text-field {

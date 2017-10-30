@@ -6,10 +6,6 @@ import { ConnectedRouter } from 'react-router-redux';
 // react-md utilizes Google's material icons
 import WebFont from 'webfontloader';
 
-WebFont.load({
-  google: { families: ['Material Icons'] },
-});
-
 import App from './containers/App';
 import configureStore from './store/configureStore';
 
@@ -17,6 +13,11 @@ import './assets/stylesheets/index.scss';
 
 // the same history instance is required in the store and ConnectedRouter
 import createBrowserHistory from 'history/createBrowserHistory';
+
+WebFont.load({
+  google: { families: ['Material Icons'] },
+});
+
 const history = createBrowserHistory();
 const store = configureStore(history);
 

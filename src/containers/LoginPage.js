@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 
+import * as loginAction from '../actions/auth';
 import LoginForm from '../components/LoginForm';
-
 
 class LoginPage extends Component {
   constructor(props) {
@@ -13,26 +13,32 @@ class LoginPage extends Component {
       userName: '',
       password: '',
       role: process.env.REACT_APP_ROLE,
-      bankCode: process.env.REACT_APP_BANK_CODE,
       message: '',
     };
   }
 
-  componentWillMount() {
-  }
+  componentWillMount() {}
 
   handleLogin(e) {
+    debugger;
     e.preventDefault();
-    
+    const { userName, password } = this.state;
+    const credentials = { userName, password };
+    this.props.actions.loginUser(credentials).then(() => {
+      this.props.actions.getCurrentUser().then(() => {
+        if (sessionStorage.getItem('user')) {
+          this.redirectToDashboard();
+        }
+      });
+    });
   }
 
   redirectToDashboard() {
-    this.props.actions.authSuccess();
     this.props.history.push('/dashboard');
   }
 
   renderForm() {
-    const { message, spinner } = this.props;
+    const { message } = this.props;
     return (
       <LoginForm
         userName={this.state.userName}
@@ -40,17 +46,12 @@ class LoginPage extends Component {
         handleChange={(name, value) => this.setState({ [name]: value })}
         onSubmit={e => this.handleLogin(e)}
         message={message}
-        spinner={!!spinner}
       />
     );
   }
 
   render() {
-    return (
-      <div className="page-container">
-        {this.renderForm()}
-      </div>
-    );
+    return <div className="page-container">{this.renderForm()}</div>;
   }
 }
 
@@ -62,10 +63,17 @@ LoginPage.propTypes = {
 };
 
 function mapState(state) {
+  debugger;
   return {
-    message: '',
+    message: state.loginReducer.message,
+    isAdmin: state.loginReducer.isAdmin,
   };
 }
 
+function mapDispatch(dispatch) {
+  return {
+    actions: bindActionCreators(loginAction, dispatch),
+  };
+}
 
-export default connect(mapState)(LoginPage);
+export default connect(mapState, mapDispatch)(LoginPage);
