@@ -20,7 +20,6 @@ class LoginPage extends Component {
   componentWillMount() {}
 
   handleLogin(e) {
-    debugger;
     e.preventDefault();
     const { userName, password } = this.state;
     const credentials = { userName, password };
@@ -63,7 +62,6 @@ LoginPage.propTypes = {
 };
 
 function mapState(state) {
-  debugger;
   return {
     message: state.loginReducer.message,
     isAdmin: state.loginReducer.isAdmin,

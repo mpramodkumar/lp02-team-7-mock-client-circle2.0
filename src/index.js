@@ -1,18 +1,14 @@
+import createBrowserHistory from 'history/createBrowserHistory';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-
-// react-md utilizes Google's material icons
+import registerServiceWorker from './registerServiceWorker';
 import WebFont from 'webfontloader';
-
 import App from './containers/App';
 import configureStore from './store/configureStore';
 
-import './assets/stylesheets/index.scss';
-
-// the same history instance is required in the store and ConnectedRouter
-import createBrowserHistory from 'history/createBrowserHistory';
+import './index.css';
 
 WebFont.load({
   google: { families: ['Material Icons'] },
@@ -21,7 +17,7 @@ WebFont.load({
 const history = createBrowserHistory();
 const store = configureStore(history);
 
-function render(Component) {
+const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
@@ -30,15 +26,17 @@ function render(Component) {
     </Provider>,
     document.getElementById('root')
   );
-}
+};
 
 render(App);
 
-// In development, react hot loading updates the application when
-// changes are made, but maintains the application state.
+// In development, hot module replacement (HMR) updates the application
+// when changes are made, without having to refresh.
 if (module.hot) {
   module.hot.accept('./containers/App', () => {
     const NextApp = require('./containers/App').default;
     render(NextApp);
   });
 }
+
+registerServiceWorker();

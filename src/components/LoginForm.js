@@ -5,7 +5,7 @@ import TextField from 'react-md/lib/TextFields';
 
 import { validatePresence } from '../utils/inputValidations';
 
-import '../assets/stylesheets/LoginForm.scss';
+import '../assets/stylesheets/LoginForm.css';
 
 const LoginForm = ({ userName, password, handleChange, onSubmit, message }) => {
   const formValid = () => {
@@ -17,45 +17,43 @@ const LoginForm = ({ userName, password, handleChange, onSubmit, message }) => {
   };
 
   return (
-    <form className="login-form">
-      <form className="login-form__container" onSubmit={onSubmit}>
-        <h2 className="login-form__title">{renderLoginText()}</h2>
-        <div className="login-form__content">
-          <TextField
-            id="userName"
-            onChange={value => handleChange('userName', value)}
-            placeholder="Username"
-            value={userName}
-            required
-            className="md-cell md-cell--bottom login-form__input"
-            inputClassName="font_size__normal"
-          />
-          <TextField
-            id="password"
-            onChange={value => handleChange('password', value)}
-            placeholder="Password"
-            type="password"
-            value={password}
-            required
-            className="md-cell md-cell--bottom login-form__input"
-            inputClassName="font_size__normal"
-          />
+    <form className="login-form login-form__container" onSubmit={onSubmit}>
+      <h2 className="login-form__title">{renderLoginText()}</h2>
+      <div className="login-form__content">
+        <TextField
+          id="userName"
+          onChange={value => handleChange('userName', value)}
+          placeholder="Username"
+          value={userName}
+          required
+          className="md-cell md-cell--bottom login-form__input"
+          inputClassName="font_size__normal"
+        />
+        <TextField
+          id="password"
+          onChange={value => handleChange('password', value)}
+          placeholder="Password"
+          type="password"
+          value={password}
+          required
+          className="md-cell md-cell--bottom login-form__input"
+          inputClassName="font_size__normal"
+        />
 
-          <div className="login-form__buttons">
-            <Button
-              className="login-form__submit"
-              disabled={!formValid()}
-              label="LOGIN"
-              onClick={onSubmit}
-              raised
-              primary
-              type="submit"
-            />
-          </div>
-          <p className="">Need help logging in?</p>
+        <div className="login-form__buttons">
+          <Button
+            className="login-form__submit"
+            disabled={!formValid()}
+            label="LOGIN"
+            onClick={onSubmit}
+            raised
+            primary
+            type="submit"
+          />
         </div>
-        <span className="login-form__message">{message}</span>
-      </form>
+        <p className="">Need help logging in?</p>
+      </div>
+      <span className="login-form__message">{message}</span>
     </form>
   );
 };
