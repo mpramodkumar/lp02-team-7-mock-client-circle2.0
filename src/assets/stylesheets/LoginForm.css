@@ -11,11 +11,13 @@
   .login-form .login-form__container {
     padding: 80px 24px 36px; }
   .login-form .login-form__title {
-    font-size: 30px;
+    color: #58727c;
+    font-size: 50px;
+    font-weight: bold;
     text-align: center; }
   .login-form .login-form__content {
-    margin-left: 40px;
-    margin-right: 40px; }
+    margin-left: 50px;
+    margin-right: 65px; }
   .login-form .login-form__buttons {
     margin-top: 45px;
     text-align: center; }
@@ -31,39 +33,9 @@
     line-height: 20px;
     height: 40px;
     text-transform: capitalize;
-    width: 75%; }
-  .login-form .md-text-field {
-    width: 100%; }
-
-.login-form {
-  border-radius: 4px;
-  margin: 128px auto;
-  width: 425px;
-  height: 375px;
-  text-align: center; }
-  .login-form .login-form__container {
-    padding: 80px 24px 36px; }
-  .login-form .login-form__title {
-    font-size: 30px;
+    width: 100%;
     text-align: center; }
-  .login-form .login-form__content {
-    margin-left: 40px;
-    margin-right: 40px; }
-  .login-form .login-form__buttons {
-    margin-top: 45px;
-    text-align: center; }
-  .login-form .login-form__input {
-    height: 32px;
-    line-height: 1.15;
-    margin-top: 25px;
-    width: 100%; }
-  .login-form .login-form__message {
-    color: #b01e1e; }
-  .login-form .login-form__submit {
-    font-size: 20px;
-    line-height: 20px;
-    height: 40px;
-    text-transform: capitalize;
-    width: 75%; }
+  .login-form .md-background--primary {
+    background: #58727c !important; }
   .login-form .md-text-field {
     width: 100%; }

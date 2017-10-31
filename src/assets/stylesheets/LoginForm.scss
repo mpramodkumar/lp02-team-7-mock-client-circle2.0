@@ -12,13 +12,15 @@
   }
 
   .login-form__title {
-    font-size: 30px;
+    color: rgb(88, 114, 124);
+    font-size: 50px;
+    font-weight: bold;
     text-align: center;
   }
 
   .login-form__content {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 50px;
+    margin-right: 65px;
   }
 
   .login-form__buttons {
@@ -42,58 +44,12 @@
     line-height: 20px;
     height: 40px;
     text-transform: capitalize;
-    width: 75%;
-  }
-
-  .md-text-field {
     width: 100%;
-  }
-}
-
-
-.login-form {
-  border-radius: 4px;
-  margin: #{$nav-bar-height * 2} auto;
-  width: 425px;
-  height: 375px;
-  text-align: center;
-
-  .login-form__container {
-    padding: 80px 24px 36px;
-  }
-
-  .login-form__title {
-    font-size: 30px;
     text-align: center;
   }
 
-  .login-form__content {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-
-  .login-form__buttons {
-    margin-top: 45px;
-    text-align: center;
-  }
-
-  .login-form__input {
-    height: 32px;
-    line-height: 1.15;
-    margin-top: 25px;
-    width: 100%;
-  }
-
-  .login-form__message {
-    color: $red;
-  }
-
-  .login-form__submit {
-    font-size: 20px;
-    line-height: 20px;
-    height: 40px;
-    text-transform: capitalize;
-    width: 75%;
+  .md-background--primary {
+    background: rgb(88, 114, 124) !important;
   }
 
   .md-text-field {
