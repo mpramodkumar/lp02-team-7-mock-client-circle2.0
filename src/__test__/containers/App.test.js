@@ -6,7 +6,6 @@ describe('Container: App', () => {
   const wrapper = shallow(<App />);
 
   it('renders without crashing', () => {
-    console.log(jest.fn());
     expect(wrapper.exists()).toBe(true);
   });
 });

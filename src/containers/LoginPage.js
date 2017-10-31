@@ -20,7 +20,6 @@ class LoginPage extends Component {
   componentWillMount() {}
 
   handleLogin(e) {
-    debugger;
     e.preventDefault();
     const { userName, password } = this.state;
     const credentials = { userName, password };

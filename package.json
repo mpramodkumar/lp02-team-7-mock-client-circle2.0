@@ -31,6 +31,7 @@
     "react-test-renderer": "^16.0.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
+    "sass-lint": "^1.12.1",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
@@ -41,6 +42,8 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "lint": "eslint src/**/*.js",
     "lint:watch": "esw -w src/**/*.js",
+    "sass-lint": "sass-lint src/assets/stylesheets/**/*.scss -v",
+    "lint-all": "npm run lint && npm run sass-lint",
     "precommit": "lint-staged",
     "start-js": "react-scripts start",
     "test:once": "npm rebuild node-sass && CI=true react-scripts test --env=jsdom",

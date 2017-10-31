@@ -44,7 +44,7 @@ const LoginForm = ({ userName, password, handleChange, onSubmit, message }) => {
           <Button
             className="login-form__submit"
             disabled={!formValid()}
-            children="LOGIN"
+            label="LOGIN"
             onClick={onSubmit}
             raised
             primary
