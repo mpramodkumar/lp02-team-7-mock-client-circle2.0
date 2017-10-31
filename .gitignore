@@ -7,6 +7,9 @@
 /coverage
 junit.xml
 
+# compiled css files
+src/**/*.css
+
 # production
 /build
 

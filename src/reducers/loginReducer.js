@@ -5,6 +5,7 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
+  message: '',
   currentUser: {},
   isAdmin: false,
 };
